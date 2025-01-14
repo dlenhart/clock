@@ -136,42 +136,31 @@ class Clock:
     def _get_clock_icon(hours) -> Enum:
         """Get clock icon based on time"""
 
-        hours = int(hours)
-
-        if hours == 1 or hours == 13:
-            return ClockEmoji.ONE_O_CLOCK
-
-        if hours == 2 or hours == 14:
-            return ClockEmoji.TWO_O_CLOCK
-
-        if hours == 3 or hours == 15:
-            return ClockEmoji.THREE_O_CLOCK
-
-        if hours == 4 or hours == 16:
-            return ClockEmoji.FOUR_O_CLOCK
-
-        if hours == 5 or hours == 17:
-            return ClockEmoji.FIVE_O_CLOCK
-
-        if hours == 6 or hours == 18:
-            return ClockEmoji.SIX_O_CLOCK
-
-        if hours == 7 or hours == 19:
-            return ClockEmoji.SEVEN_O_CLOCK
-
-        if hours == 8 or hours == 20:
-            return ClockEmoji.EIGHT_O_CLOCK
-
-        if hours == 9 or hours == 21:
-            return ClockEmoji.NINE_O_CLOCK
-
-        if hours == 10 or hours == 22:
-            return ClockEmoji.TEN_O_CLOCK
-
-        if hours == 11 or hours == 23:
-            return ClockEmoji.ELEVEN_O_CLOCK
-
-        return ClockEmoji.TWELVE_O_CLOCK
+        match int(hours):
+            case 1 | 13:
+                return ClockEmoji.ONE_O_CLOCK
+            case 2 | 14:
+                return ClockEmoji.TWO_O_CLOCK
+            case 3 | 15:
+                return ClockEmoji.THREE_O_CLOCK
+            case 4 | 16:
+                return ClockEmoji.FOUR_O_CLOCK
+            case 5 | 17:
+                return ClockEmoji.FIVE_O_CLOCK
+            case 6 | 18:
+                return ClockEmoji.SIX_O_CLOCK
+            case 7 | 19:
+                return ClockEmoji.SEVEN_O_CLOCK
+            case 8 | 20:
+                return ClockEmoji.EIGHT_O_CLOCK
+            case 9 | 21:
+                return ClockEmoji.NINE_O_CLOCK
+            case 10 | 22:
+                return ClockEmoji.TEN_O_CLOCK
+            case 11 | 23:
+                return ClockEmoji.ELEVEN_O_CLOCK
+            case _:
+                return ClockEmoji.TWELVE_O_CLOCK
 
     @staticmethod
     def _select_color(color: str) -> str:
@@ -197,4 +186,4 @@ class Clock:
 
 
 if __name__ == "__main__":
-    Clock('BRIGHT_MAGENTA').display(display_seconds=True)
+    Clock('BRIGHT_MAGENTA').display(display_seconds=True, center=True)
