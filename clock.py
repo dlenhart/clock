@@ -7,7 +7,7 @@ import os
 
 """
 Name:           dlenhart/clock
-Description:    My Python Clock for use on a Linux terminal via tiling window manager.
+Description:    python clock for the terminal
 Author:         Drew D. Lenhart
 Repository:     https://github.com/dlenhart/clock
 """
@@ -43,6 +43,7 @@ class ClockEmoji(Enum):
     """Clock unicode characters"""
 
     ONE_O_CLOCK = '\U0001F550'
+    ONE_THIRTY = '\U0001F55C'
     TWO_O_CLOCK = '\U0001F551'
     THREE_O_CLOCK = '\U0001F552'
     FOUR_O_CLOCK = '\U0001F553'
@@ -85,7 +86,7 @@ class Clock:
 
                 time.sleep(1)
         except KeyboardInterrupt:
-            exit_message = "Exiting clock...thank you.."
+            exit_message = "Exiting clock..."
 
             self._set_terminal()
             self._write(f""
