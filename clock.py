@@ -45,16 +45,27 @@ class ClockEmoji(Enum):
     ONE_O_CLOCK = '\U0001F550'
     ONE_THIRTY = '\U0001F55C'
     TWO_O_CLOCK = '\U0001F551'
+    TWO_THIRTY = '\U0001F55D'
     THREE_O_CLOCK = '\U0001F552'
+    THREE_THIRTY = '\U0001F55E'
     FOUR_O_CLOCK = '\U0001F553'
+    FOUR_THIRTY = '\U0001F55F'
     FIVE_O_CLOCK = '\U0001F554'
+    FIVE_THIRTY = '\U0001F560'
     SIX_O_CLOCK = '\U0001F555'
+    SIX_THIRTY = '\U0001F561'
     SEVEN_O_CLOCK = '\U0001F556'
+    SEVEN_THIRTY = '\U0001F562'
     EIGHT_O_CLOCK = '\U0001F557'
+    EIGHT_THIRTY = '\U0001F563'
     NINE_O_CLOCK = '\U0001F558'
+    NINE_THIRTY = '\U0001F564'
     TEN_O_CLOCK = '\U0001F559'
+    TEN_THIRTY = '\U0001F565'
     ELEVEN_O_CLOCK = '\U0001F55A'
+    ELEVEN_THIRTY = '\U0001F566'
     TWELVE_O_CLOCK = '\U0001F55B'
+    TWELVE_THIRTY = '\U0001F567'
 
 
 class Clock:
@@ -71,7 +82,7 @@ class Clock:
         try:
             while True:
                 hours, minutes, seconds = Clock._parse_date_time()
-                clock_icon = self._get_clock_icon(hours)
+                clock_icon = self._get_clock_icon(hours, minutes)
 
                 current_time = Clock._format_time(
                     hours, minutes, seconds, display_seconds, self._parse_am_pm(), clock_icon
@@ -134,33 +145,60 @@ class Clock:
         return now.strftime("%p")
 
     @staticmethod
-    def _get_clock_icon(hours) -> Enum:
+    def _get_clock_icon(hours, minutes) -> Enum:
         """Get clock icon based on time"""
 
-        match int(hours):
+        hours = int(hours)
+        minutes = int(minutes)
+
+        match hours:
             case 1 | 13:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.ONE_THIRTY
                 return ClockEmoji.ONE_O_CLOCK
             case 2 | 14:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.TWO_THIRTY
                 return ClockEmoji.TWO_O_CLOCK
             case 3 | 15:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.THREE_THIRTY
                 return ClockEmoji.THREE_O_CLOCK
             case 4 | 16:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.FOUR_THIRTY
                 return ClockEmoji.FOUR_O_CLOCK
             case 5 | 17:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.FIVE_THIRTY
                 return ClockEmoji.FIVE_O_CLOCK
             case 6 | 18:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.SIX_THIRTY
                 return ClockEmoji.SIX_O_CLOCK
             case 7 | 19:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.SEVEN_THIRTY
                 return ClockEmoji.SEVEN_O_CLOCK
             case 8 | 20:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.EIGHT_THIRTY
                 return ClockEmoji.EIGHT_O_CLOCK
             case 9 | 21:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.NINE_THIRTY
                 return ClockEmoji.NINE_O_CLOCK
             case 10 | 22:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.TEN_THIRTY
                 return ClockEmoji.TEN_O_CLOCK
             case 11 | 23:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.ELEVEN_THIRTY
                 return ClockEmoji.ELEVEN_O_CLOCK
             case _:
+                if minutes >=29 and minutes <= 59:
+                    return ClockEmoji.TWELVE_THIRTY
                 return ClockEmoji.TWELVE_O_CLOCK
 
     @staticmethod
