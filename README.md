@@ -1,2 +1,4 @@
 # clock
- python clock for terminal
+ a python clock for the terminal
+
+ 
