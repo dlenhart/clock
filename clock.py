@@ -73,7 +73,7 @@ class Clock:
 
     _color = None
 
-    def __init__(self, color: str = ANSICodes.MAGENTA.value):
+    def __init__(self, color: str = 'BRIGHT_MAGENTA'):
         self._color = self._select_color(color)
 
     def display(self, display_seconds: bool = True, center: bool = True) -> None:
