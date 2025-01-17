@@ -153,53 +153,58 @@ class Clock:
 
         match hours:
             case 1 | 13:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.ONE_THIRTY
                 return ClockEmoji.ONE_O_CLOCK
             case 2 | 14:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.TWO_THIRTY
                 return ClockEmoji.TWO_O_CLOCK
             case 3 | 15:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.THREE_THIRTY
                 return ClockEmoji.THREE_O_CLOCK
             case 4 | 16:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.FOUR_THIRTY
                 return ClockEmoji.FOUR_O_CLOCK
             case 5 | 17:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.FIVE_THIRTY
                 return ClockEmoji.FIVE_O_CLOCK
             case 6 | 18:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.SIX_THIRTY
                 return ClockEmoji.SIX_O_CLOCK
             case 7 | 19:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.SEVEN_THIRTY
                 return ClockEmoji.SEVEN_O_CLOCK
             case 8 | 20:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.EIGHT_THIRTY
                 return ClockEmoji.EIGHT_O_CLOCK
             case 9 | 21:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.NINE_THIRTY
                 return ClockEmoji.NINE_O_CLOCK
             case 10 | 22:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.TEN_THIRTY
                 return ClockEmoji.TEN_O_CLOCK
             case 11 | 23:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.ELEVEN_THIRTY
                 return ClockEmoji.ELEVEN_O_CLOCK
             case _:
-                if minutes >=29 and minutes <= 59:
+                if Clock._check_half_hour(minutes):
                     return ClockEmoji.TWELVE_THIRTY
                 return ClockEmoji.TWELVE_O_CLOCK
+
+
+    @staticmethod
+    def _check_half_hour(minutes):
+        return minutes >=29 and minutes <= 59
 
     @staticmethod
     def _select_color(color: str) -> str:
